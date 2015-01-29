@@ -1,0 +1,18 @@
+[global]
+logpath         : <%= node['lshell']['logpath'] %>
+loglevel        : <%= node['lshell']['loglevel'] %>
+[default]
+allowed         : <%= node['lshell']['def_allow_comm'] %>
+forbidden       : <%= node['lshell']['forbidden'] %>
+warning_counter : <%= node['lshell']['warn_counter'] %>
+aliases         : {'ll':'ls -l', 'vi':'vim'}
+prompt          : <%= node['lshell']['prompt'] %>
+
+sudo_commands   : <%= node['lshell']['sudo_comm'] %>
+
+<% node['lshell']['group'].each do |group, value| -%>
+[grp:<%= group %>]
+allowed         : + <%= value[0] %>
+path            : + <%= value[1] %>
+<% end %>
+

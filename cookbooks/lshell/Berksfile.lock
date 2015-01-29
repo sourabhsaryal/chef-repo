@@ -1,0 +1,7 @@
+DEPENDENCIES
+  lshell
+    path: .
+    metadata: true
+
+GRAPH
+  lshell (0.1.0)
